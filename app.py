@@ -41,7 +41,7 @@ class party_end_view(ui.View):
 
 @bot.event
 async def on_ready():
-    print("봇 준비 완료")
+    print("Bot is ready.")
 
 @bot.slash_command(name="파티", description="파티를 구해요", guild_ids=[SERVER_ID])
 async def 파티(interaction: Interaction, 메시지: Optional[str] = SlashOption(description='파티 모집과 함께 전송되는 메세지 입니다.', required=False, default='없음')):
