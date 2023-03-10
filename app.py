@@ -58,7 +58,7 @@ async def 파티(interaction: Interaction, 메시지: Optional[str] = SlashOptio
         info = {
             "category_id" : channel.category_id,
             "channel_id" : channel.id,
-            "channel_user_status" : str(len(channel.members)) + "/" + str(channel.user_limit if channel.user_limit != 0 else "∞"),
+            "channel_user_status" : str(len(bot.get_channel(channel.id).members)) + "/" + str(channel.user_limit if channel.user_limit != 0 else "∞"),
             "user_id" : user.id,
             "message" : 메시지,
             "channel_url" : channel.jump_url
