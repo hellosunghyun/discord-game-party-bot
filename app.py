@@ -1,4 +1,4 @@
-from nextcord import Interaction, Embed, ui, ButtonStyle, SlashOption, Message, InteractionType
+from nextcord import Interaction, Embed, ui, ButtonStyle, SlashOption, InteractionType, VoiceChannel, utils
 from nextcord.ext import commands
 import datetime
 import os
@@ -54,11 +54,12 @@ async def 파티(interaction: Interaction, 메시지: Optional[str] = SlashOptio
             return
 
         channel = voice_state.channel
+        print(channel.voice_states)
 
         info = {
             "category_id" : channel.category_id,
             "channel_id" : channel.id,
-            "channel_user_status" : str(len(bot.get_channel(channel.id).members)) + "/" + str(channel.user_limit if channel.user_limit != 0 else "∞"),
+            "channel_user_status" : str(len(channel.voice_states)) + "/" + str(channel.user_limit if channel.user_limit != 0 else "∞"),
             "user_id" : user.id,
             "message" : 메시지,
             "channel_url" : channel.jump_url
